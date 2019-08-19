@@ -19,7 +19,11 @@ int main(void) {
 
     if (imgOriginalScene.empty()) {                             // if unable to open image
         std::cout << "error: image not read from file\n\n";     // show error message on command line
+#ifdef _WINDOWS
         _getch();                                               // may have to modify this line if not using Windows
+#else
+        getchar();
+#endif
         return(0);                                              // and exit program
     }
 
